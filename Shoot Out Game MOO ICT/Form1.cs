@@ -34,10 +34,10 @@ namespace Shoot_Out_Game_MOO_ICT
         Random randNum = new Random();
 
         //Enemy speeds
-        int zombieSpeed = 3;
+        int zombieSpeed = 1;
 
         //lists
-        List<float> enemyHealth = new List<float>();
+        List<double> enemyHealth = new List<double>();
 
 
 
@@ -107,6 +107,7 @@ namespace Shoot_Out_Game_MOO_ICT
                 allLocked = false;
                 //Change sprite on all doors except "lockedDoor"
                 //Spawn Chest
+                enemyHealth.Clear();
 
 
             }
@@ -155,7 +156,7 @@ namespace Shoot_Out_Game_MOO_ICT
 
                 foreach (Control j in this.Controls)
                 {
-                    if (j is PictureBox && (string)j.Tag == "bullet" && x is PictureBox && (string)x.Tag == "zombie") //make them need multiple hits and include different enemy types
+                    if (j is PictureBox && (string)j.Tag == "bullet" && x is PictureBox && (string)x.Tag == "zombie") //If bullet hits an enemy (specifically a zombie rn) - make them need multiple hits and include different enemy types
                     {
                         if (x.Bounds.IntersectsWith(j.Bounds))
                         {
@@ -172,9 +173,42 @@ namespace Shoot_Out_Game_MOO_ICT
                         }
                     }
                 }
+                // below is the if statement which will be checking if the player hits a zombie
+                if (x is PictureBox && x.Tag == "zombie")
+                {
+                    // below is the if statament thats checking the bounds of the player and the zombie
+                    if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
+                    {
+                        playerHealth -= 1; // if the zombie hits the player then we decrease the health by 1
+                    }
+                    //move zombie towards the player picture box
+                    if (((PictureBox)x).Left > player.Left)
+                    {
+                        ((PictureBox)x).Left -= zombieSpeed; // move zombie towards the left of the player
+                        ((PictureBox)x).Image = Properties.Resources.zleft; // change the zombie image to the left
+                    }
+                    if (((PictureBox)x).Top > player.Top)
+                    {
+                        ((PictureBox)x).Top -= zombieSpeed; // move zombie upwards towards the players top
+                        ((PictureBox)x).Image = Properties.Resources.zup; // change the zombie picture to the top pointing image
+                    }
+                    if (((PictureBox)x).Left < player.Left)
+                    {
+                        ((PictureBox)x).Left += zombieSpeed; // move zombie towards the right of the player
+                        ((PictureBox)x).Image = Properties.Resources.zright; // change the image to the right image
+                    }
+                    if (((PictureBox)x).Top < player.Top)
+                    {
+                        ((PictureBox)x).Top += zombieSpeed; // move the zombie towards the bottom of the player
+                        ((PictureBox)x).Image = Properties.Resources.zdown; // change the image to the down zombie
+                    }
+                }
 
 
             }
+
+
+
 
 
         }
@@ -353,6 +387,8 @@ namespace Shoot_Out_Game_MOO_ICT
             enemyNum = randNum.Next(1, 3) + floor; //make list with enemy health in each part of it
             for (int i = 0; i < enemyNum; i++)
             {
+                int test = i + 1;
+                enemyHealth.Add(randNum.Next(2, 3)*enemyHealthMultiplier); //sets enemy health - need to detect which enemy is which to reduce health off the right one - also need to remove the item after the right enemy is killed
                 PictureBox zombie = new PictureBox(); // create a new picture box called zombie
                 zombie.Tag = "zombie"; // add a tag to it called zombie
                 zombie.Image = Properties.Resources.zdown; // the default picture for the zombie is zdown
