@@ -28,6 +28,7 @@ namespace Shoot_Out_Game_MOO_ICT
         double enemyHealthMultiplier = 1;
         int floor = 1;
         int roomNum = 0;
+        int gold = 0;
         bool firstRoom = true;
         bool allLocked = false;
         bool stairsVisible = false;
@@ -50,8 +51,9 @@ namespace Shoot_Out_Game_MOO_ICT
 
         private void MainTimerEvent(object sender, EventArgs e)
         {
-            labelFloor.Text = ($"Floor: {floor.ToString()} /  {BOSS_FLOOR}");
-            labelRoom.Text = ($"Room: {roomNum.ToString()}");
+            labelFloor.Text = ($"Floor: {floor} /  {BOSS_FLOOR}");
+            labelRoom.Text = ($"Room: {roomNum}");
+            labelGold.Text = ($"Gold: {gold}");
             NewFloor();
             //Doors
             //Door Interaction
@@ -161,6 +163,7 @@ namespace Shoot_Out_Game_MOO_ICT
                         if (x.Bounds.IntersectsWith(j.Bounds))
                         {
 
+                            
                             this.Controls.Remove(j);
                             ((PictureBox)j).Dispose();
                             this.Controls.Remove(x);
@@ -173,7 +176,7 @@ namespace Shoot_Out_Game_MOO_ICT
                         }
                     }
                 }
-                // below is the if statement which will be checking if the player hits a zombie
+                //if the player hits a zombie
                 if (x is PictureBox && x.Tag == "zombie")
                 {
                     // below is the if statament thats checking the bounds of the player and the zombie

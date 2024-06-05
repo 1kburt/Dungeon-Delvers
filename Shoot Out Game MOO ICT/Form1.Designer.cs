@@ -41,6 +41,7 @@
             this.player = new System.Windows.Forms.PictureBox();
             this.labelRoom = new System.Windows.Forms.Label();
             this.labelFloor = new System.Windows.Forms.Label();
+            this.labelGold = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.stairs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor2)).BeginInit();
@@ -153,12 +154,23 @@
             this.labelFloor.TabIndex = 11;
             this.labelFloor.Text = "Floor:";
             // 
+            // labelGold
+            // 
+            this.labelGold.AutoSize = true;
+            this.labelGold.BackColor = System.Drawing.Color.White;
+            this.labelGold.Location = new System.Drawing.Point(15, 40);
+            this.labelGold.Name = "labelGold";
+            this.labelGold.Size = new System.Drawing.Size(32, 13);
+            this.labelGold.TabIndex = 12;
+            this.labelGold.Text = "Gold:";
+            // 
             // DungeonDelvers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(924, 661);
+            this.Controls.Add(this.labelGold);
             this.Controls.Add(this.labelFloor);
             this.Controls.Add(this.labelRoom);
             this.Controls.Add(this.stairs);
@@ -197,6 +209,7 @@
         private System.Windows.Forms.PictureBox stairs;
         private System.Windows.Forms.Label labelRoom;
         private System.Windows.Forms.Label labelFloor;
+        private System.Windows.Forms.Label labelGold;
     }
 }
 
