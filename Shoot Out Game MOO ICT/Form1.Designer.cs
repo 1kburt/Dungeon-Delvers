@@ -33,21 +33,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.healthBar = new System.Windows.Forms.ProgressBar();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.labelRoom = new System.Windows.Forms.Label();
+            this.labelFloor = new System.Windows.Forms.Label();
+            this.labelGold = new System.Windows.Forms.Label();
+            this.bat1 = new System.Windows.Forms.PictureBox();
             this.stairs = new System.Windows.Forms.PictureBox();
             this.basicDoor3 = new System.Windows.Forms.PictureBox();
             this.basicDoor2 = new System.Windows.Forms.PictureBox();
             this.basicDoor1 = new System.Windows.Forms.PictureBox();
             this.basicDoor = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
-            this.labelRoom = new System.Windows.Forms.Label();
-            this.labelFloor = new System.Windows.Forms.Label();
-            this.labelGold = new System.Windows.Forms.Label();
+            this.bat2 = new System.Windows.Forms.PictureBox();
+            this.bat3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.bat1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stairs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bat2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bat3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -74,6 +80,46 @@
             this.GameTimer.Enabled = true;
             this.GameTimer.Interval = 20;
             this.GameTimer.Tick += new System.EventHandler(this.MainTimerEvent);
+            // 
+            // labelRoom
+            // 
+            this.labelRoom.AutoSize = true;
+            this.labelRoom.BackColor = System.Drawing.Color.White;
+            this.labelRoom.Location = new System.Drawing.Point(15, 12);
+            this.labelRoom.Name = "labelRoom";
+            this.labelRoom.Size = new System.Drawing.Size(38, 13);
+            this.labelRoom.TabIndex = 10;
+            this.labelRoom.Text = "Room:";
+            // 
+            // labelFloor
+            // 
+            this.labelFloor.AutoSize = true;
+            this.labelFloor.BackColor = System.Drawing.Color.White;
+            this.labelFloor.Location = new System.Drawing.Point(15, 26);
+            this.labelFloor.Name = "labelFloor";
+            this.labelFloor.Size = new System.Drawing.Size(33, 13);
+            this.labelFloor.TabIndex = 11;
+            this.labelFloor.Text = "Floor:";
+            // 
+            // labelGold
+            // 
+            this.labelGold.AutoSize = true;
+            this.labelGold.BackColor = System.Drawing.Color.White;
+            this.labelGold.Location = new System.Drawing.Point(15, 40);
+            this.labelGold.Name = "labelGold";
+            this.labelGold.Size = new System.Drawing.Size(32, 13);
+            this.labelGold.TabIndex = 12;
+            this.labelGold.Text = "Gold:";
+            // 
+            // bat1
+            // 
+            this.bat1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown3;
+            this.bat1.Location = new System.Drawing.Point(499, 286);
+            this.bat1.Name = "bat1";
+            this.bat1.Size = new System.Drawing.Size(89, 36);
+            this.bat1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bat1.TabIndex = 13;
+            this.bat1.TabStop = false;
             // 
             // stairs
             // 
@@ -134,35 +180,25 @@
             this.player.TabIndex = 2;
             this.player.TabStop = false;
             // 
-            // labelRoom
+            // bat2
             // 
-            this.labelRoom.AutoSize = true;
-            this.labelRoom.BackColor = System.Drawing.Color.White;
-            this.labelRoom.Location = new System.Drawing.Point(15, 12);
-            this.labelRoom.Name = "labelRoom";
-            this.labelRoom.Size = new System.Drawing.Size(38, 13);
-            this.labelRoom.TabIndex = 10;
-            this.labelRoom.Text = "Room:";
+            this.bat2.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown3;
+            this.bat2.Location = new System.Drawing.Point(360, 295);
+            this.bat2.Name = "bat2";
+            this.bat2.Size = new System.Drawing.Size(89, 36);
+            this.bat2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bat2.TabIndex = 14;
+            this.bat2.TabStop = false;
             // 
-            // labelFloor
+            // bat3
             // 
-            this.labelFloor.AutoSize = true;
-            this.labelFloor.BackColor = System.Drawing.Color.White;
-            this.labelFloor.Location = new System.Drawing.Point(15, 26);
-            this.labelFloor.Name = "labelFloor";
-            this.labelFloor.Size = new System.Drawing.Size(33, 13);
-            this.labelFloor.TabIndex = 11;
-            this.labelFloor.Text = "Floor:";
-            // 
-            // labelGold
-            // 
-            this.labelGold.AutoSize = true;
-            this.labelGold.BackColor = System.Drawing.Color.White;
-            this.labelGold.Location = new System.Drawing.Point(15, 40);
-            this.labelGold.Name = "labelGold";
-            this.labelGold.Size = new System.Drawing.Size(32, 13);
-            this.labelGold.TabIndex = 12;
-            this.labelGold.Text = "Gold:";
+            this.bat3.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown3;
+            this.bat3.Location = new System.Drawing.Point(250, 270);
+            this.bat3.Name = "bat3";
+            this.bat3.Size = new System.Drawing.Size(89, 36);
+            this.bat3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bat3.TabIndex = 15;
+            this.bat3.TabStop = false;
             // 
             // DungeonDelvers
             // 
@@ -170,6 +206,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(924, 661);
+            this.Controls.Add(this.bat3);
+            this.Controls.Add(this.bat2);
+            this.Controls.Add(this.bat1);
             this.Controls.Add(this.labelGold);
             this.Controls.Add(this.labelFloor);
             this.Controls.Add(this.labelRoom);
@@ -186,12 +225,15 @@
             this.Load += new System.EventHandler(this.DungeonDelvers_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            ((System.ComponentModel.ISupportInitialize)(this.bat1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stairs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bat2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bat3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +252,9 @@
         private System.Windows.Forms.Label labelRoom;
         private System.Windows.Forms.Label labelFloor;
         private System.Windows.Forms.Label labelGold;
+        private System.Windows.Forms.PictureBox bat1;
+        private System.Windows.Forms.PictureBox bat2;
+        private System.Windows.Forms.PictureBox bat3;
     }
 }
 

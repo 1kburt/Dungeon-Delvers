@@ -33,12 +33,19 @@ namespace Shoot_Out_Game_MOO_ICT
         bool allLocked = false;
         bool stairsVisible = false;
         Random randNum = new Random();
+        //enemy nums
+        int batNum = 0;
+        int ratNum = 0;
+        int slimeNum = 0;
+        int goblinNum = 0;
+        int skeletonNum = 0;
 
         //Enemy speeds
         int zombieSpeed = 1;
 
         //lists
         List<double> enemyHealth = new List<double>();
+        List<string> enemyTypes = new List<string>();
 
 
 
@@ -120,7 +127,7 @@ namespace Shoot_Out_Game_MOO_ICT
             else
             {
                 gameOver = true;
-                player.Image = Properties.Resources.dead;
+                player.Image = Properties.Resources.dead; //reset
                 GameTimer.Stop();
             }
 
@@ -179,10 +186,10 @@ namespace Shoot_Out_Game_MOO_ICT
                 //if the player hits a zombie
                 if (x is PictureBox && x.Tag == "zombie")
                 {
-                    // below is the if statament thats checking the bounds of the player and the zombie
+                    // below is the if statement thats checking the bounds of the player and the zombie
                     if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
                     {
-                        playerHealth -= 1; // if the zombie hits the player then we decrease the health by 1
+                        playerHealth -= 1; // if the zombie hits the player then we decrease the health by 1 - add i frames
                     }
                     //move zombie towards the player picture box
                     if (((PictureBox)x).Left > player.Left)
@@ -382,7 +389,6 @@ namespace Shoot_Out_Game_MOO_ICT
 
         private void SpawnEnemies()
         {
-
             //Choose enemy type
 
 
@@ -390,8 +396,8 @@ namespace Shoot_Out_Game_MOO_ICT
             enemyNum = randNum.Next(1, 3) + floor; //make list with enemy health in each part of it
             for (int i = 0; i < enemyNum; i++)
             {
-                int test = i + 1;
                 enemyHealth.Add(randNum.Next(2, 3)*enemyHealthMultiplier); //sets enemy health - need to detect which enemy is which to reduce health off the right one - also need to remove the item after the right enemy is killed
+                //set specific enemy
                 PictureBox zombie = new PictureBox(); // create a new picture box called zombie
                 zombie.Tag = "zombie"; // add a tag to it called zombie
                 zombie.Image = Properties.Resources.zdown; // the default picture for the zombie is zdown
@@ -408,8 +414,121 @@ namespace Shoot_Out_Game_MOO_ICT
             //Zombies
             
         }
-    
 
+        private void SpawnEnemies2() //new enemy spawner
+        {
+            int chooseEnemy;
+            //Choose number of enemies
+            //Choose enemies
+            if (floor == 1)
+            {
+
+                //bats and rats
+                enemyNum = randNum.Next(1, 3); 
+                for (int i = 0; i < enemyNum; i++)
+                {
+                    chooseEnemy = randNum.Next(0, 1);
+                    if (chooseEnemy == 0 && !(batNum > 3))
+                    {
+                        //spawn bat
+                        BatSpawn();
+                    }
+                    else if (!(ratNum > 3))
+                    {
+                        //spawn rat
+                    }
+                    else if (batNum != 3 && ratNum != 3)
+                    {
+                        i--; //decrease i by one to redo the loop
+                    }
+                }
+
+            }
+            else if (floor == 2)
+            {
+                //bats rats slimes
+                enemyNum = randNum.Next(1, 3); //add enemy health in each part of list
+                for (int i = 0; i < enemyNum; i++)
+                {
+                    chooseEnemy = randNum.Next(0, 2);
+                    if (chooseEnemy == 0 && !(batNum > 3))
+                    {
+                        //spawn bat
+                        BatSpawn();
+                    }
+                    else if (chooseEnemy == 1 && !(ratNum > 3))
+                    {
+                        //spawn rat
+
+                    }
+                    else if (!(slimeNum > 3))
+                    {
+                        //spawn slime
+                    }
+                }
+            }
+            else if (floor == 3)
+            {
+                //bats rats slimes goblins
+                enemyNum = randNum.Next(1, 3); //add enemy health in each part of list
+                for (int i = 0; i < enemyNum; i++)
+                {
+                    chooseEnemy = randNum.Next(0, 3);
+                    if (chooseEnemy == 0 && !(batNum > 3))
+                    {
+                        //spawn bat
+                        BatSpawn();
+                    }
+                    else if (chooseEnemy == 1 && !(ratNum > 3))
+                    {
+                        //spawn rat
+
+                    }
+                    else if (chooseEnemy == 2 && !(slimeNum > 3))
+                    {
+                        //spawn slime
+                    }
+                    else if (!(goblinNum > 3))
+                    {
+                        //spawn goblin
+                    }
+                }
+                
+            }
+            else if (floor == 4)
+            {
+                //bats rats slimes goblins skeletons
+                enemyNum = randNum.Next(1, 3); //add enemy health in each part of list
+                for (int i = 0; i < enemyNum; i++)
+                {
+                    chooseEnemy = randNum.Next(0, 2);
+                    if (chooseEnemy == 0 && !(batNum > 3))
+                    {
+                        //spawn bat
+                        BatSpawn();
+
+                    }
+                    else if (chooseEnemy == 1 && !(ratNum > 3))
+                    {
+                        //spawn rat
+
+                    }
+                    else if (chooseEnemy == 2 && !(slimeNum > 3))
+                    {
+                        //spawn slime
+                    }
+                    else if (chooseEnemy == 3 && !(goblinNum > 3))
+                    {
+                        //spawn goblin
+                    }
+                    else if (!(skeletonNum > 3))
+                    {
+                        //spawn skeleton
+                    }
+                }
+                
+            }
+        }
         private void SpawnStairs()
         {
             stairs.Top = randNum.Next(120, 500);
@@ -440,6 +559,39 @@ namespace Shoot_Out_Game_MOO_ICT
         private void BossFloor()
         {
 
+        }
+
+        private void BatSpawn()
+        {
+            if (batNum == 0)
+            {
+
+                bat1.Show();
+                bat1.Left = randNum.Next(200, 700);
+                bat1.Top = randNum.Next(200, 350);
+                enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
+                enemyTypes.Add("bat1");
+
+            }
+            else if(batNum == 1)
+            {
+                bat2.Show();
+                bat2.Show();
+                bat2.Left = randNum.Next(200, 700);
+                bat2.Top = randNum.Next(200, 350);
+                enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
+                enemyTypes.Add("bat2");
+            }
+            else
+            {
+                bat3.Show();
+                bat3.Show();
+                bat3.Left = randNum.Next(200, 700);
+                bat3.Top = randNum.Next(200, 350);
+                enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
+                enemyTypes.Add("bat3");
+            }
+            batNum++;
         }
 
 
