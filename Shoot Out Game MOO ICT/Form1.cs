@@ -28,11 +28,13 @@ namespace Shoot_Out_Game_MOO_ICT
         double enemyHealthMultiplier = 1;
         int floor = 1;
         int roomNum = 0;
+        int enemyHit = 0;
         int gold = 0;
         bool firstRoom = true;
         bool allLocked = false;
         bool stairsVisible = false;
         Random randNum = new Random();
+        int damage = 20;
         //enemy nums
         int batNum = 0;
         int ratNum = 0;
@@ -54,6 +56,9 @@ namespace Shoot_Out_Game_MOO_ICT
             InitializeComponent();
             RestartGame();
             stairs.Hide();
+            bat1.Hide();
+            bat2.Hide();
+            bat3.Hide();
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
@@ -147,79 +152,7 @@ namespace Shoot_Out_Game_MOO_ICT
             {
                 player.Top += speed;
             }
-
-
-
-            foreach (Control x in this.Controls)
-            {
-                if (x is PictureBox && (string)x.Tag == "ammo")
-                {
-                    if (player.Bounds.IntersectsWith(x.Bounds))
-                    {
-                        this.Controls.Remove(x);
-                        ((PictureBox)x).Dispose();
-
-                    }
-                }
-
-
-                foreach (Control j in this.Controls)
-                {
-                    if (j is PictureBox && (string)j.Tag == "bullet" && x is PictureBox && (string)x.Tag == "zombie") //If bullet hits an enemy (specifically a zombie rn) - make them need multiple hits and include different enemy types
-                    {
-                        if (x.Bounds.IntersectsWith(j.Bounds))
-                        {
-
-                            
-                            this.Controls.Remove(j);
-                            ((PictureBox)j).Dispose();
-                            this.Controls.Remove(x);
-                            ((PictureBox)x).Dispose();
-                            enemyNum -= 1;
-                            if (enemyNum == 0)
-                            {
-                                SpawnChest();
-                            }
-                        }
-                    }
-                }
-                //if the player hits a zombie
-                if (x is PictureBox && x.Tag == "zombie")
-                {
-                    // below is the if statement thats checking the bounds of the player and the zombie
-                    if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
-                    {
-                        playerHealth -= 1; // if the zombie hits the player then we decrease the health by 1 - add i frames
-                    }
-                    //move zombie towards the player picture box
-                    if (((PictureBox)x).Left > player.Left)
-                    {
-                        ((PictureBox)x).Left -= zombieSpeed; // move zombie towards the left of the player
-                        ((PictureBox)x).Image = Properties.Resources.zleft; // change the zombie image to the left
-                    }
-                    if (((PictureBox)x).Top > player.Top)
-                    {
-                        ((PictureBox)x).Top -= zombieSpeed; // move zombie upwards towards the players top
-                        ((PictureBox)x).Image = Properties.Resources.zup; // change the zombie picture to the top pointing image
-                    }
-                    if (((PictureBox)x).Left < player.Left)
-                    {
-                        ((PictureBox)x).Left += zombieSpeed; // move zombie towards the right of the player
-                        ((PictureBox)x).Image = Properties.Resources.zright; // change the image to the right image
-                    }
-                    if (((PictureBox)x).Top < player.Top)
-                    {
-                        ((PictureBox)x).Top += zombieSpeed; // move the zombie towards the bottom of the player
-                        ((PictureBox)x).Image = Properties.Resources.zdown; // change the image to the down zombie
-                    }
-                }
-
-
-            }
-
-
-
-
+            Collision();
 
         }
 
@@ -387,35 +320,7 @@ namespace Shoot_Out_Game_MOO_ICT
             stairs.Hide();
         }
 
-        private void SpawnEnemies()
-        {
-            //Choose enemy type
-
-
-            //Choose number of enemies
-            enemyNum = randNum.Next(1, 3) + floor; //make list with enemy health in each part of it
-            for (int i = 0; i < enemyNum; i++)
-            {
-                enemyHealth.Add(randNum.Next(2, 3)*enemyHealthMultiplier); //sets enemy health - need to detect which enemy is which to reduce health off the right one - also need to remove the item after the right enemy is killed
-                //set specific enemy
-                PictureBox zombie = new PictureBox(); // create a new picture box called zombie
-                zombie.Tag = "zombie"; // add a tag to it called zombie
-                zombie.Image = Properties.Resources.zdown; // the default picture for the zombie is zdown
-                zombie.Left = randNum.Next(200, 700); // generate a number between 0 and 900 and assignment that to the new zombies left 
-                zombie.Top = randNum.Next(200, 350); // generate a number between 0 and 800 and assignment that to the new zombies top
-                zombie.SizeMode = PictureBoxSizeMode.AutoSize; // set auto size for the new picture box
-                this.Controls.Add(zombie); // add the picture box to the screen
-                player.BringToFront(); // bring the player to the front
-            }
-            //ignore enemies in bonus room
-            //set enemy health to enemy health * multiplier
-            
-            //Up to here
-            //Zombies
-            
-        }
-
-        private void SpawnEnemies2() //new enemy spawner
+        private void SpawnEnemies() //new enemy spawner
         {
             int chooseEnemy;
             //Choose number of enemies
@@ -567,31 +472,119 @@ namespace Shoot_Out_Game_MOO_ICT
             {
 
                 bat1.Show();
+                bat1.Tag = "enemy";
                 bat1.Left = randNum.Next(200, 700);
                 bat1.Top = randNum.Next(200, 350);
                 enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
                 enemyTypes.Add("bat1");
+                this.Controls.Add(bat1);
 
             }
             else if(batNum == 1)
             {
                 bat2.Show();
-                bat2.Show();
+                bat2.Tag = "enemy";
                 bat2.Left = randNum.Next(200, 700);
                 bat2.Top = randNum.Next(200, 350);
                 enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
                 enemyTypes.Add("bat2");
+                this.Controls.Add(bat2);
             }
             else
             {
                 bat3.Show();
-                bat3.Show();
+                bat3.Tag = "enemy";
                 bat3.Left = randNum.Next(200, 700);
                 bat3.Top = randNum.Next(200, 350);
                 enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
                 enemyTypes.Add("bat3");
+                this.Controls.Add(bat3);
             }
             batNum++;
+        }
+
+
+        private void Collision()
+        {
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && (string)x.Tag == "ammo")
+                {
+                    if (player.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        this.Controls.Remove(x);
+                        ((PictureBox)x).Dispose();
+
+                    }
+                }
+
+
+                foreach (Control j in this.Controls)
+                {
+                    if (j is PictureBox && (string)j.Tag == "bullet" && x is PictureBox && (string)x.Tag == "enemy") //If bullet hits an enemy (specifically a zombie rn) - make them need multiple hits and include different enemy types
+                    {
+                        if (((PictureBox)bat1).Bounds.IntersectsWith(j.Bounds)) //j is bullet
+                        {
+                            this.Controls.Remove(j);
+                            
+                            ((PictureBox)j).Dispose();
+                            if (enemyNum == 0)
+                            {
+                                SpawnChest();
+                            }
+                            for (int i = 0; i < enemyHealth.Count; i++)
+                            {
+                                if (enemyTypes[i] == "bat1")
+                                {
+                                    enemyHit = i;
+                                }
+                            }
+                            enemyHealth[enemyHit] -= damage; //out of range error
+                            if (enemyHealth[enemyHit] <= 0)
+                            {
+                                //die
+                                bat1.Hide();
+                                enemyNum -= 1;
+                            }
+                        }
+
+                    }
+                }
+                //if the player hits an enemy
+                if (x is PictureBox && x.Tag == "enemy")
+                {
+                    // below is the if statement thats checking the bounds of the player and the zombie
+                    if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
+                    {
+                        playerHealth -= 1; // if the zombie hits the player then we decrease the health by 1 - add i frames
+                    }
+                    //move zombie towards the player picture box
+                    if (((PictureBox)x).Left > player.Left)
+                    {
+                        ((PictureBox)x).Left -= zombieSpeed; // move zombie towards the left of the player
+                         // change the zombie image to the left
+                    }
+                    if (((PictureBox)x).Top > player.Top)
+                    {
+                        ((PictureBox)x).Top -= zombieSpeed; // move zombie upwards towards the players top
+                         // change the zombie picture to the top pointing image
+                    }
+                    if (((PictureBox)x).Left < player.Left)
+                    {
+                        ((PictureBox)x).Left += zombieSpeed; // move zombie towards the right of the player
+                         // change the image to the right image
+                    }
+                    if (((PictureBox)x).Top < player.Top)
+                    {
+                        ((PictureBox)x).Top += zombieSpeed; // move the zombie towards the bottom of the player
+                         // change the image to the down zombie
+                    }
+                }
+
+
+            }
+
+
         }
 
 
