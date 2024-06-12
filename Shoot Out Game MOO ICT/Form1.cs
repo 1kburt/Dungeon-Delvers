@@ -43,7 +43,12 @@ namespace Shoot_Out_Game_MOO_ICT
         int skeletonNum = 0;
 
         //Enemy speeds
-        int zombieSpeed = 1;
+        int zombieSpeed = 3;
+
+        //visibility
+        bool bat1Visible = false;
+        bool bat2Visible = false;
+        bool bat3Visible = false;
 
         //lists
         List<double> enemyHealth = new List<double>();
@@ -65,7 +70,7 @@ namespace Shoot_Out_Game_MOO_ICT
         {
             labelFloor.Text = ($"Floor: {floor} /  {BOSS_FLOOR}");
             labelRoom.Text = ($"Room: {roomNum}");
-            labelGold.Text = ($"Gold: {gold}");
+            labelRoom.Text = ($"Gold: {gold}");
             NewFloor();
             //Doors
             //Door Interaction
@@ -478,6 +483,7 @@ namespace Shoot_Out_Game_MOO_ICT
                 enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
                 enemyTypes.Add("bat1");
                 this.Controls.Add(bat1);
+                bat1Visible = true;
 
             }
             else if(batNum == 1)
@@ -489,6 +495,7 @@ namespace Shoot_Out_Game_MOO_ICT
                 enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
                 enemyTypes.Add("bat2");
                 this.Controls.Add(bat2);
+                bat2Visible = true;
             }
             else
             {
@@ -499,6 +506,7 @@ namespace Shoot_Out_Game_MOO_ICT
                 enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
                 enemyTypes.Add("bat3");
                 this.Controls.Add(bat3);
+                bat3Visible = true;
             }
             batNum++;
         }
@@ -523,7 +531,7 @@ namespace Shoot_Out_Game_MOO_ICT
                 {
                     if (j is PictureBox && (string)j.Tag == "bullet" && x is PictureBox && (string)x.Tag == "enemy") //If bullet hits an enemy (specifically a zombie rn) - make them need multiple hits and include different enemy types
                     {
-                        if (((PictureBox)bat1).Bounds.IntersectsWith(j.Bounds)) //j is bullet
+                        if (((PictureBox)bat1).Bounds.IntersectsWith(j.Bounds) && bat1Visible) //j is bullet
                         {
                             this.Controls.Remove(j);
                             
@@ -537,14 +545,73 @@ namespace Shoot_Out_Game_MOO_ICT
                                 if (enemyTypes[i] == "bat1")
                                 {
                                     enemyHit = i;
+                                    labelGold.Text = (enemyHit.ToString());
+                                }
+                            }
+                            enemyHealth[enemyHit] -= damage;
+                            //out of range error
+                            if (enemyHealth[enemyHit] <= 0)
+                            {
+                                //die
+                                bat1.Hide();
+                                enemyNum -= 1;
+                                enemyHealth.RemoveAt(enemyHit);
+                                enemyTypes.RemoveAt(enemyHit);
+                                bat1Visible = false;
+                            }
+                        }
+                        if (((PictureBox)bat2).Bounds.IntersectsWith(j.Bounds) && bat2Visible) //j is bullet
+                        {
+                            this.Controls.Remove(j);
+
+                            ((PictureBox)j).Dispose();
+                            if (enemyNum == 0)
+                            {
+                                SpawnChest();
+                            }
+                            for (int i = 0; i < enemyHealth.Count; i++)
+                            {
+                                if (enemyTypes[i] == "bat2")
+                                {
+                                    enemyHit = i;
                                 }
                             }
                             enemyHealth[enemyHit] -= damage; //out of range error
                             if (enemyHealth[enemyHit] <= 0)
                             {
                                 //die
-                                bat1.Hide();
+                                bat2.Hide();
                                 enemyNum -= 1;
+                                enemyHealth.RemoveAt(enemyHit);
+                                enemyTypes.RemoveAt(enemyHit);
+                                bat2Visible = false;
+                            }
+                        }
+                        if (((PictureBox)bat3).Bounds.IntersectsWith(j.Bounds) && bat3Visible) //j is bullet
+                        {
+                            this.Controls.Remove(j);
+
+                            ((PictureBox)j).Dispose();
+                            if (enemyNum == 0)
+                            {
+                                SpawnChest();
+                            }
+                            for (int i = 0; i < enemyHealth.Count; i++)
+                            {
+                                if (enemyTypes[i] == "bat2")
+                                {
+                                    enemyHit = i;
+                                }
+                            }
+                            enemyHealth[enemyHit] -= damage; //out of range error
+                            if (enemyHealth[enemyHit] <= 0)
+                            {
+                                //die
+                                bat3.Hide();
+                                enemyNum -= 1;
+                                enemyHealth.RemoveAt(enemyHit);
+                                enemyTypes.RemoveAt(enemyHit);
+                                bat3Visible = false;
                             }
                         }
 
@@ -553,11 +620,20 @@ namespace Shoot_Out_Game_MOO_ICT
                 //if the player hits an enemy
                 if (x is PictureBox && x.Tag == "enemy")
                 {
-                    // below is the if statement thats checking the bounds of the player and the zombie
-                    if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
+                    // below is the if statement thats checking the bounds of the player and the enemy
+                    if (((PictureBox)bat1).Bounds.IntersectsWith(player.Bounds) && bat1Visible)
                     {
-                        playerHealth -= 1; // if the zombie hits the player then we decrease the health by 1 - add i frames
+                        playerHealth -= 1;
                     }
+                    if (((PictureBox)bat2).Bounds.IntersectsWith(player.Bounds) && bat2Visible)
+                    {
+                        playerHealth -= 1;
+                    }
+                    if (((PictureBox)bat3).Bounds.IntersectsWith(player.Bounds) && bat3Visible)
+                    {
+                        playerHealth -= 1;
+                    }
+
                     //move zombie towards the player picture box
                     if (((PictureBox)x).Left > player.Left)
                     {
