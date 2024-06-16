@@ -129,5 +129,20 @@
   <ItemGroup>
     <None Include="Resources\DD_BatDown3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DD_BatDown4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DD_BatUp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DD_Rat1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DD_Staircase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DD_OpenDoor.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

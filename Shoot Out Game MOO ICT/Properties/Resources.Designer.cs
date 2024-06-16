@@ -63,16 +63,6 @@ namespace Shoot_Out_Game_MOO_ICT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ammo_Image {
-            get {
-                object obj = ResourceManager.GetObject("ammo-Image", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap castledoors {
             get {
                 object obj = ResourceManager.GetObject("castledoors", resourceCulture);
@@ -113,9 +103,59 @@ namespace Shoot_Out_Game_MOO_ICT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DD_BatDown4 {
+            get {
+                object obj = ResourceManager.GetObject("DD_BatDown4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DD_BatUp {
             get {
                 object obj = ResourceManager.GetObject("DD_BatUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DD_BatUp2 {
+            get {
+                object obj = ResourceManager.GetObject("DD_BatUp2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DD_OpenDoor {
+            get {
+                object obj = ResourceManager.GetObject("DD_OpenDoor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DD_Rat1 {
+            get {
+                object obj = ResourceManager.GetObject("DD_Rat1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DD_Staircase {
+            get {
+                object obj = ResourceManager.GetObject("DD_Staircase", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

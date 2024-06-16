@@ -30,6 +30,7 @@ namespace Shoot_Out_Game_MOO_ICT
         int roomNum = 0;
         int enemyHit = 0;
         int gold = 0;
+        int animCounter = 0;
         bool firstRoom = true;
         bool allLocked = false;
         bool stairsVisible = false;
@@ -43,12 +44,21 @@ namespace Shoot_Out_Game_MOO_ICT
         int skeletonNum = 0;
 
         //Enemy speeds
-        int zombieSpeed = 3;
+        int enemySpeed = 3;
+        int bat1Speed = 3;
+        int bat2Speed = 3;
+        int bat3Speed = 3;
+        int rat1Speed = 2;
+        int rat2Speed = 2;
+        int rat3Speed = 2;
 
         //visibility
         bool bat1Visible = false;
         bool bat2Visible = false;
         bool bat3Visible = false;
+        bool rat1Visible = false;
+        bool rat2Visible = false;
+        bool rat3Visible = false;
 
         //lists
         List<double> enemyHealth = new List<double>();
@@ -64,10 +74,15 @@ namespace Shoot_Out_Game_MOO_ICT
             bat1.Hide();
             bat2.Hide();
             bat3.Hide();
+            rat1.Hide();
+            rat2.Hide();
+            rat3.Hide();
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
         {
+            enemyAnims();
+            enemyMove();
             labelFloor.Text = ($"Floor: {floor} /  {BOSS_FLOOR}");
             labelRoom.Text = ($"Room: {roomNum}");
             labelRoom.Text = ($"Gold: {gold}");
@@ -346,6 +361,7 @@ namespace Shoot_Out_Game_MOO_ICT
                     else if (!(ratNum > 3))
                     {
                         //spawn rat
+                        RatSpawn();
                     }
                     else if (batNum != 3 && ratNum != 3)
                     {
@@ -369,7 +385,7 @@ namespace Shoot_Out_Game_MOO_ICT
                     else if (chooseEnemy == 1 && !(ratNum > 3))
                     {
                         //spawn rat
-
+                        RatSpawn();
                     }
                     else if (!(slimeNum > 3))
                     {
@@ -392,7 +408,7 @@ namespace Shoot_Out_Game_MOO_ICT
                     else if (chooseEnemy == 1 && !(ratNum > 3))
                     {
                         //spawn rat
-
+                        RatSpawn();
                     }
                     else if (chooseEnemy == 2 && !(slimeNum > 3))
                     {
@@ -421,7 +437,7 @@ namespace Shoot_Out_Game_MOO_ICT
                     else if (chooseEnemy == 1 && !(ratNum > 3))
                     {
                         //spawn rat
-
+                        RatSpawn();
                     }
                     else if (chooseEnemy == 2 && !(slimeNum > 3))
                     {
@@ -511,6 +527,46 @@ namespace Shoot_Out_Game_MOO_ICT
             batNum++;
         }
 
+        private void RatSpawn()
+        {
+            if (ratNum == 0)
+            {
+
+                rat1.Show();
+                rat1.Tag = "enemy";
+                rat1.Left = randNum.Next(200, 700);
+                rat1.Top = randNum.Next(200, 350);
+                enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
+                enemyTypes.Add("rat1");
+                this.Controls.Add(rat1);
+                rat1Visible = true;
+
+            }
+            else if (ratNum == 1)
+            {
+                rat2.Show();
+                rat2.Tag = "enemy";
+                rat2.Left = randNum.Next(200, 700);
+                rat2.Top = randNum.Next(200, 350);
+                enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
+                enemyTypes.Add("rat2");
+                this.Controls.Add(rat2);
+                rat2Visible = true;
+            }
+            else
+            {
+                rat3.Show();
+                rat3.Tag = "enemy";
+                rat3.Left = randNum.Next(200, 700);
+                rat3.Top = randNum.Next(200, 350);
+                enemyHealth.Add(randNum.Next(100, 150) * enemyHealthMultiplier); //adjust values if necessary
+                enemyTypes.Add("rat3");
+                this.Controls.Add(rat3);
+                rat3Visible = true;
+            }
+            ratNum++;
+        }
+
 
         private void Collision()
         {
@@ -545,7 +601,6 @@ namespace Shoot_Out_Game_MOO_ICT
                                 if (enemyTypes[i] == "bat1")
                                 {
                                     enemyHit = i;
-                                    labelGold.Text = (enemyHit.ToString());
                                 }
                             }
                             enemyHealth[enemyHit] -= damage;
@@ -598,7 +653,7 @@ namespace Shoot_Out_Game_MOO_ICT
                             }
                             for (int i = 0; i < enemyHealth.Count; i++)
                             {
-                                if (enemyTypes[i] == "bat2")
+                                if (enemyTypes[i] == "bat3")
                                 {
                                     enemyHit = i;
                                 }
@@ -612,6 +667,92 @@ namespace Shoot_Out_Game_MOO_ICT
                                 enemyHealth.RemoveAt(enemyHit);
                                 enemyTypes.RemoveAt(enemyHit);
                                 bat3Visible = false;
+                            }
+                        }
+
+
+                        if (((PictureBox)rat1).Bounds.IntersectsWith(j.Bounds) && rat1Visible) //j is bullet
+                        {
+                            this.Controls.Remove(j);
+
+                            ((PictureBox)j).Dispose();
+                            if (enemyNum == 0)
+                            {
+                                SpawnChest();
+                            }
+                            for (int i = 0; i < enemyHealth.Count; i++)
+                            {
+                                if (enemyTypes[i] == "rat1")
+                                {
+                                    enemyHit = i;
+                                }
+                            }
+                            enemyHealth[enemyHit] -= damage;
+                            //out of range error
+                            if (enemyHealth[enemyHit] <= 0)
+                            {
+                                //die
+                                rat1.Hide();
+                                enemyNum -= 1;
+                                enemyHealth.RemoveAt(enemyHit);
+                                enemyTypes.RemoveAt(enemyHit);
+                                bat1Visible = false;
+                            }
+                        }
+                        if (((PictureBox)rat2).Bounds.IntersectsWith(j.Bounds) && rat2Visible) //j is bullet
+                        {
+                            this.Controls.Remove(j);
+
+                            ((PictureBox)j).Dispose();
+                            if (enemyNum == 0)
+                            {
+                                SpawnChest();
+                            }
+                            for (int i = 0; i < enemyHealth.Count; i++)
+                            {
+                                if (enemyTypes[i] == "rat2")
+                                {
+                                    enemyHit = i;
+                                }
+                            }
+                            enemyHealth[enemyHit] -= damage;
+                            //out of range error
+                            if (enemyHealth[enemyHit] <= 0)
+                            {
+                                //die
+                                rat2.Hide();
+                                enemyNum -= 1;
+                                enemyHealth.RemoveAt(enemyHit);
+                                enemyTypes.RemoveAt(enemyHit);
+                                bat1Visible = false;
+                            }
+                        }
+                        if (((PictureBox)rat3).Bounds.IntersectsWith(j.Bounds) && rat3Visible) //j is bullet
+                        {
+                            this.Controls.Remove(j);
+
+                            ((PictureBox)j).Dispose();
+                            if (enemyNum == 0)
+                            {
+                                SpawnChest();
+                            }
+                            for (int i = 0; i < enemyHealth.Count; i++)
+                            {
+                                if (enemyTypes[i] == "rat3")
+                                {
+                                    enemyHit = i;
+                                }
+                            }
+                            enemyHealth[enemyHit] -= damage;
+                            //out of range error
+                            if (enemyHealth[enemyHit] <= 0)
+                            {
+                                //die
+                                rat1.Hide();
+                                enemyNum -= 1;
+                                enemyHealth.RemoveAt(enemyHit);
+                                enemyTypes.RemoveAt(enemyHit);
+                                bat1Visible = false;
                             }
                         }
 
@@ -633,28 +774,19 @@ namespace Shoot_Out_Game_MOO_ICT
                     {
                         playerHealth -= 1;
                     }
+                    if (((PictureBox)bat3).Bounds.IntersectsWith(player.Bounds) && rat1Visible)
+                    {
+                        playerHealth -= 1;
+                    }
+                    if (((PictureBox)bat3).Bounds.IntersectsWith(player.Bounds) && rat2Visible)
+                    {
+                        playerHealth -= 1;
+                    }
+                    if (((PictureBox)bat3).Bounds.IntersectsWith(player.Bounds) && rat3Visible)
+                    {
+                        playerHealth -= 1;
+                    }
 
-                    //move zombie towards the player picture box
-                    if (((PictureBox)x).Left > player.Left)
-                    {
-                        ((PictureBox)x).Left -= zombieSpeed; // move zombie towards the left of the player
-                         // change the zombie image to the left
-                    }
-                    if (((PictureBox)x).Top > player.Top)
-                    {
-                        ((PictureBox)x).Top -= zombieSpeed; // move zombie upwards towards the players top
-                         // change the zombie picture to the top pointing image
-                    }
-                    if (((PictureBox)x).Left < player.Left)
-                    {
-                        ((PictureBox)x).Left += zombieSpeed; // move zombie towards the right of the player
-                         // change the image to the right image
-                    }
-                    if (((PictureBox)x).Top < player.Top)
-                    {
-                        ((PictureBox)x).Top += zombieSpeed; // move the zombie towards the bottom of the player
-                         // change the image to the down zombie
-                    }
                 }
 
 
@@ -663,7 +795,201 @@ namespace Shoot_Out_Game_MOO_ICT
 
         }
 
+        private void enemyAnims() //make enemies have different anim speed
+        {
+            if (animCounter >= 30)
+            {
+                animCounter = 0;
+            }
+            else if (animCounter <= 15)
+            {
+                bat1.Image = Properties.Resources.DD_BatUp2;
+                bat2.Image = Properties.Resources.DD_BatUp2;
+                bat3.Image = Properties.Resources.DD_BatUp2;
+            }
+            else if (animCounter >= 15)
+            {
+                bat1.Image = Properties.Resources.DD_BatDown4;
+                bat2.Image = Properties.Resources.DD_BatDown4;
+                bat3.Image = Properties.Resources.DD_BatDown4;
+            }
+            animCounter++;
 
+        }
+
+        private void enemyMove()
+        {
+            //move bat1 toward player
+            if (((PictureBox)bat1).Left > player.Left)
+            {
+                ((PictureBox)bat1).Left -= bat1Speed;
+            }
+            if (((PictureBox)bat1).Top > player.Top)
+            {
+                ((PictureBox)bat1).Top -= bat1Speed;
+            }
+            if (((PictureBox)bat1).Left < player.Left)
+            {
+                ((PictureBox)bat1).Left += bat1Speed;
+            }
+            if (((PictureBox)bat1).Top < player.Top)
+            {
+                ((PictureBox)bat1).Top += bat1Speed;
+            }
+            //Stop overlap
+            if (((PictureBox)bat1).Bounds.IntersectsWith(bat2.Bounds) && bat1Visible && bat2Visible)
+            {
+                //set bat1 speed to 0
+                bat1Speed = 0;
+            }
+            else
+            {
+                bat1Speed = 3;
+            }
+
+            //move bat2 toward player
+            if (((PictureBox)bat2).Left > player.Left)
+            {
+                ((PictureBox)bat2).Left -= bat2Speed;
+            }
+            if (((PictureBox)bat2).Top > player.Top)
+            {
+                ((PictureBox)bat2).Top -= bat2Speed;
+            }
+            if (((PictureBox)bat2).Left < player.Left)
+            {
+                ((PictureBox)bat2).Left += bat2Speed;
+            }
+            if (((PictureBox)bat2).Top < player.Top)
+            {
+                ((PictureBox)bat2).Top += bat2Speed;
+            }
+            //Stop overlap
+            if (((PictureBox)bat2).Bounds.IntersectsWith(bat3.Bounds) && bat2Visible && bat3Visible)
+            {
+                //set bat1 speed to 0
+                bat2Speed = 0;
+            }
+            else
+            {
+                bat2Speed = 3;
+            }
+
+            //move bat3 toward player
+            if (((PictureBox)bat3).Left > player.Left)
+            {
+                ((PictureBox)bat3).Left -= bat3Speed;
+            }
+            if (((PictureBox)bat3).Top > player.Top)
+            {
+                ((PictureBox)bat3).Top -= bat3Speed;
+            }
+            if (((PictureBox)bat3).Left < player.Left)
+            {
+                ((PictureBox)bat3).Left += bat3Speed;
+            }
+            if (((PictureBox)bat3).Top < player.Top)
+            {
+                ((PictureBox)bat3).Top += bat3Speed;
+            }
+            if (((PictureBox)bat3).Bounds.IntersectsWith(bat1.Bounds) && bat3Visible && bat1Visible)
+            {
+                //set bat3 speed to 0
+                bat3Speed = 0;
+            }
+            else
+            {
+                bat3Speed = 3;
+            }
+
+
+
+            //rats
+            //move rat1 toward player
+            if (((PictureBox)rat1).Left > player.Left)
+            {
+                ((PictureBox)rat1).Left -= rat1Speed;
+            }
+            if (((PictureBox)rat1).Top > player.Top)
+            {
+                ((PictureBox)rat1).Top -= rat1Speed;
+            }
+            if (((PictureBox)rat1).Left < player.Left)
+            {
+                ((PictureBox)rat1).Left += rat1Speed;
+            }
+            if (((PictureBox)rat1).Top < player.Top)
+            {
+                ((PictureBox)rat1).Top += rat1Speed;
+            }
+            //Stop overlap
+            if (((PictureBox)rat1).Bounds.IntersectsWith(rat2.Bounds) && rat1Visible && rat2Visible)
+            {
+                //set bat1 speed to 0
+                rat1Speed = 0;
+            }
+            else
+            {
+                rat1Speed = 3;
+            }
+
+            //move rat2 toward player
+            if (((PictureBox)rat2).Left > player.Left)
+            {
+                ((PictureBox)rat2).Left -= rat2Speed;
+            }
+            if (((PictureBox)rat2).Top > player.Top)
+            {
+                ((PictureBox)rat2).Top -= rat2Speed;
+            }
+            if (((PictureBox)rat2).Left < player.Left)
+            {
+                ((PictureBox)rat2).Left += rat2Speed;
+            }
+            if (((PictureBox)rat2).Top < player.Top)
+            {
+                ((PictureBox)rat2).Top += rat2Speed;
+            }
+            //Stop overlap
+            if (((PictureBox)rat2).Bounds.IntersectsWith(rat3.Bounds) && rat2Visible && rat3Visible)
+            {
+                //set bat1 speed to 0
+                rat2Speed = 0;
+            }
+            else
+            {
+                rat2Speed = 3;
+            }
+
+            //move bat3 toward player
+            if (((PictureBox)rat3).Left > player.Left)
+            {
+                ((PictureBox)rat3).Left -= bat1Speed;
+            }
+            if (((PictureBox)rat3).Top > player.Top)
+            {
+                ((PictureBox)rat3).Top -= rat3Speed;
+            }
+            if (((PictureBox)rat3).Left < player.Left)
+            {
+                ((PictureBox)rat3).Left += rat3Speed;
+            }
+            if (((PictureBox)rat3).Top < player.Top)
+            {
+                ((PictureBox)rat3).Top += bat1Speed;
+            }
+            if (((PictureBox)rat3).Bounds.IntersectsWith(rat1.Bounds) && rat3Visible && rat1Visible)
+            {
+                //set bat3 speed to 0
+                rat3Speed = 0;
+            }
+            else
+            {
+                rat3Speed = 3;
+            }
+
+
+        }
 
     }
 

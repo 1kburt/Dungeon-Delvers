@@ -36,6 +36,11 @@
             this.labelRoom = new System.Windows.Forms.Label();
             this.labelFloor = new System.Windows.Forms.Label();
             this.labelGold = new System.Windows.Forms.Label();
+            this.rat3 = new System.Windows.Forms.PictureBox();
+            this.rat2 = new System.Windows.Forms.PictureBox();
+            this.rat1 = new System.Windows.Forms.PictureBox();
+            this.bat3 = new System.Windows.Forms.PictureBox();
+            this.bat2 = new System.Windows.Forms.PictureBox();
             this.bat1 = new System.Windows.Forms.PictureBox();
             this.stairs = new System.Windows.Forms.PictureBox();
             this.basicDoor3 = new System.Windows.Forms.PictureBox();
@@ -43,8 +48,11 @@
             this.basicDoor1 = new System.Windows.Forms.PictureBox();
             this.basicDoor = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
-            this.bat2 = new System.Windows.Forms.PictureBox();
-            this.bat3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.rat3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rat2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rat1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bat3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bat2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bat1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stairs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor3)).BeginInit();
@@ -52,8 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bat2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bat3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -111,9 +117,59 @@
             this.labelGold.TabIndex = 12;
             this.labelGold.Text = "Gold:";
             // 
+            // rat3
+            // 
+            this.rat3.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_Rat1;
+            this.rat3.Location = new System.Drawing.Point(584, 440);
+            this.rat3.Name = "rat3";
+            this.rat3.Size = new System.Drawing.Size(83, 37);
+            this.rat3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rat3.TabIndex = 18;
+            this.rat3.TabStop = false;
+            // 
+            // rat2
+            // 
+            this.rat2.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_Rat1;
+            this.rat2.Location = new System.Drawing.Point(625, 286);
+            this.rat2.Name = "rat2";
+            this.rat2.Size = new System.Drawing.Size(83, 37);
+            this.rat2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rat2.TabIndex = 17;
+            this.rat2.TabStop = false;
+            // 
+            // rat1
+            // 
+            this.rat1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_Rat1;
+            this.rat1.Location = new System.Drawing.Point(603, 354);
+            this.rat1.Name = "rat1";
+            this.rat1.Size = new System.Drawing.Size(83, 37);
+            this.rat1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rat1.TabIndex = 16;
+            this.rat1.TabStop = false;
+            // 
+            // bat3
+            // 
+            this.bat3.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown4;
+            this.bat3.Location = new System.Drawing.Point(250, 270);
+            this.bat3.Name = "bat3";
+            this.bat3.Size = new System.Drawing.Size(89, 36);
+            this.bat3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bat3.TabIndex = 15;
+            this.bat3.TabStop = false;
+            // 
+            // bat2
+            // 
+            this.bat2.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown4;
+            this.bat2.Location = new System.Drawing.Point(360, 295);
+            this.bat2.Name = "bat2";
+            this.bat2.Size = new System.Drawing.Size(89, 36);
+            this.bat2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bat2.TabIndex = 14;
+            this.bat2.TabStop = false;
+            // 
             // bat1
             // 
-            this.bat1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown3;
+            this.bat1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown4;
             this.bat1.Location = new System.Drawing.Point(499, 286);
             this.bat1.Name = "bat1";
             this.bat1.Size = new System.Drawing.Size(89, 36);
@@ -123,10 +179,11 @@
             // 
             // stairs
             // 
-            this.stairs.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.stairs;
-            this.stairs.Location = new System.Drawing.Point(446, 180);
+            this.stairs.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_Staircase;
+            this.stairs.Location = new System.Drawing.Point(426, 189);
             this.stairs.Name = "stairs";
-            this.stairs.Size = new System.Drawing.Size(31, 30);
+            this.stairs.Size = new System.Drawing.Size(100, 100);
+            this.stairs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.stairs.TabIndex = 7;
             this.stairs.TabStop = false;
             // 
@@ -152,11 +209,12 @@
             // 
             // basicDoor1
             // 
-            this.basicDoor1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.castledoors;
+            this.basicDoor1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_OpenDoor;
             this.basicDoor1.InitialImage = ((System.Drawing.Image)(resources.GetObject("basicDoor1.InitialImage")));
-            this.basicDoor1.Location = new System.Drawing.Point(858, 270);
+            this.basicDoor1.Location = new System.Drawing.Point(824, 270);
             this.basicDoor1.Name = "basicDoor1";
-            this.basicDoor1.Size = new System.Drawing.Size(65, 100);
+            this.basicDoor1.Size = new System.Drawing.Size(100, 100);
+            this.basicDoor1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.basicDoor1.TabIndex = 4;
             this.basicDoor1.TabStop = false;
             // 
@@ -180,32 +238,15 @@
             this.player.TabIndex = 2;
             this.player.TabStop = false;
             // 
-            // bat2
-            // 
-            this.bat2.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown3;
-            this.bat2.Location = new System.Drawing.Point(360, 295);
-            this.bat2.Name = "bat2";
-            this.bat2.Size = new System.Drawing.Size(89, 36);
-            this.bat2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bat2.TabIndex = 14;
-            this.bat2.TabStop = false;
-            // 
-            // bat3
-            // 
-            this.bat3.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown3;
-            this.bat3.Location = new System.Drawing.Point(250, 270);
-            this.bat3.Name = "bat3";
-            this.bat3.Size = new System.Drawing.Size(89, 36);
-            this.bat3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bat3.TabIndex = 15;
-            this.bat3.TabStop = false;
-            // 
             // DungeonDelvers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(924, 661);
+            this.Controls.Add(this.rat3);
+            this.Controls.Add(this.rat2);
+            this.Controls.Add(this.rat1);
             this.Controls.Add(this.bat3);
             this.Controls.Add(this.bat2);
             this.Controls.Add(this.bat1);
@@ -225,6 +266,11 @@
             this.Load += new System.EventHandler(this.DungeonDelvers_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            ((System.ComponentModel.ISupportInitialize)(this.rat3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rat2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rat1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bat3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bat2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bat1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stairs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor3)).EndInit();
@@ -232,8 +278,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bat2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bat3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,6 +299,9 @@
         private System.Windows.Forms.PictureBox bat1;
         private System.Windows.Forms.PictureBox bat2;
         private System.Windows.Forms.PictureBox bat3;
+        private System.Windows.Forms.PictureBox rat1;
+        private System.Windows.Forms.PictureBox rat2;
+        private System.Windows.Forms.PictureBox rat3;
     }
 }
 
