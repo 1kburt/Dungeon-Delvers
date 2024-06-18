@@ -189,42 +189,45 @@
             // 
             // basicDoor3
             // 
-            this.basicDoor3.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.castledoors;
+            this.basicDoor3.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DoorClosedTop;
             this.basicDoor3.InitialImage = ((System.Drawing.Image)(resources.GetObject("basicDoor3.InitialImage")));
-            this.basicDoor3.Location = new System.Drawing.Point(426, -11);
+            this.basicDoor3.Location = new System.Drawing.Point(432, 1);
             this.basicDoor3.Name = "basicDoor3";
             this.basicDoor3.Size = new System.Drawing.Size(65, 100);
+            this.basicDoor3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.basicDoor3.TabIndex = 6;
             this.basicDoor3.TabStop = false;
             // 
             // basicDoor2
             // 
-            this.basicDoor2.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.castledoors;
+            this.basicDoor2.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DoorClosedTop;
             this.basicDoor2.InitialImage = ((System.Drawing.Image)(resources.GetObject("basicDoor2.InitialImage")));
-            this.basicDoor2.Location = new System.Drawing.Point(426, 562);
+            this.basicDoor2.Location = new System.Drawing.Point(432, 560);
             this.basicDoor2.Name = "basicDoor2";
             this.basicDoor2.Size = new System.Drawing.Size(65, 100);
+            this.basicDoor2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.basicDoor2.TabIndex = 5;
             this.basicDoor2.TabStop = false;
             // 
             // basicDoor1
             // 
-            this.basicDoor1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_OpenDoor;
+            this.basicDoor1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DoorClosedTop;
             this.basicDoor1.InitialImage = ((System.Drawing.Image)(resources.GetObject("basicDoor1.InitialImage")));
-            this.basicDoor1.Location = new System.Drawing.Point(824, 270);
+            this.basicDoor1.Location = new System.Drawing.Point(858, 270);
             this.basicDoor1.Name = "basicDoor1";
-            this.basicDoor1.Size = new System.Drawing.Size(100, 100);
+            this.basicDoor1.Size = new System.Drawing.Size(65, 100);
             this.basicDoor1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.basicDoor1.TabIndex = 4;
             this.basicDoor1.TabStop = false;
             // 
             // basicDoor
             // 
-            this.basicDoor.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.castledoors;
+            this.basicDoor.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DoorClosedTop;
             this.basicDoor.InitialImage = ((System.Drawing.Image)(resources.GetObject("basicDoor.InitialImage")));
             this.basicDoor.Location = new System.Drawing.Point(1, 270);
             this.basicDoor.Name = "basicDoor";
             this.basicDoor.Size = new System.Drawing.Size(65, 100);
+            this.basicDoor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.basicDoor.TabIndex = 3;
             this.basicDoor.TabStop = false;
             // 
@@ -244,6 +247,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(924, 661);
+            this.Controls.Add(this.player);
             this.Controls.Add(this.rat3);
             this.Controls.Add(this.rat2);
             this.Controls.Add(this.rat1);
@@ -258,7 +262,6 @@
             this.Controls.Add(this.basicDoor2);
             this.Controls.Add(this.basicDoor1);
             this.Controls.Add(this.basicDoor);
-            this.Controls.Add(this.player);
             this.Controls.Add(this.healthBar);
             this.Controls.Add(this.label1);
             this.Name = "DungeonDelvers";

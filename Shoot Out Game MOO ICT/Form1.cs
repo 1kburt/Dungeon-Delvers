@@ -93,10 +93,46 @@ namespace Shoot_Out_Game_MOO_ICT
             if (enemyNum == 0)
             {
                 allLocked = false;
+                if (lockedRoom == "Right")
+                {
+                    basicDoor.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor2.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor3.Image = Properties.Resources.DD_OpenDoor;
+                }
+                else if(lockedRoom == "Left")
+                {
+                    basicDoor1.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor2.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor3.Image = Properties.Resources.DD_OpenDoor;
+                }
+                else if (lockedRoom == "Top")
+                {
+                    basicDoor.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor2.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor1.Image = Properties.Resources.DD_OpenDoor;
+                }
+                else if (lockedRoom == "Bottom")
+                {
+                    basicDoor.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor1.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor3.Image = Properties.Resources.DD_OpenDoor;
+                }
+                else
+                {
+                    basicDoor.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor1.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor2.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor3.Image = Properties.Resources.DD_OpenDoor;
+                }
+
             }
             else
             {
                 allLocked = true; //when you kill an enemy I need to make it reduce enemynum by 1
+                basicDoor.Image = Properties.Resources.DoorClosedTop;
+                basicDoor1.Image = Properties.Resources.DoorClosedTop;
+                basicDoor2.Image = Properties.Resources.DoorClosedTop;
+                basicDoor3.Image = Properties.Resources.DoorClosedTop;
             }
             if (((PictureBox)player).Bounds.IntersectsWith(basicDoor.Bounds) && !allLocked && lockedRoom != "Left") //left door
             {
@@ -349,31 +385,36 @@ namespace Shoot_Out_Game_MOO_ICT
             {
 
                 //bats and rats
-                enemyNum = randNum.Next(1, 3); 
+                enemyNum = randNum.Next(2, 3); 
                 for (int i = 0; i < enemyNum; i++)
                 {
                     chooseEnemy = randNum.Next(0, 1);
-                    if (chooseEnemy == 0 && !(batNum > 3))
+                    if (batNum == 3 && ratNum != 3)
+                    {
+                        RatSpawn();
+                    }
+                    else if (ratNum == 3 && batNum != 3)
+                    {
+                        BatSpawn();
+                    }
+                    else if (chooseEnemy == 0 && !(batNum > 3))
                     {
                         //spawn bat
                         BatSpawn();
                     }
-                    else if (!(ratNum > 3))
+                    else if (chooseEnemy == 1 && !(ratNum > 3))
                     {
                         //spawn rat
                         RatSpawn();
                     }
-                    else if (batNum != 3 && ratNum != 3)
-                    {
-                        i--; //decrease i by one to redo the loop
-                    }
+
                 }
 
             }
             else if (floor == 2)
             {
                 //bats rats slimes
-                enemyNum = randNum.Next(1, 3); //add enemy health in each part of list
+                enemyNum = randNum.Next(3, 4); //add enemy health in each part of list
                 for (int i = 0; i < enemyNum; i++)
                 {
                     chooseEnemy = randNum.Next(0, 2);
@@ -396,7 +437,7 @@ namespace Shoot_Out_Game_MOO_ICT
             else if (floor == 3)
             {
                 //bats rats slimes goblins
-                enemyNum = randNum.Next(1, 3); //add enemy health in each part of list
+                enemyNum = randNum.Next(4, 5); //add enemy health in each part of list
                 for (int i = 0; i < enemyNum; i++)
                 {
                     chooseEnemy = randNum.Next(0, 3);
@@ -424,7 +465,7 @@ namespace Shoot_Out_Game_MOO_ICT
             else if (floor == 4)
             {
                 //bats rats slimes goblins skeletons
-                enemyNum = randNum.Next(1, 3); //add enemy health in each part of list
+                enemyNum = randNum.Next(5, 7); //add enemy health in each part of list
                 for (int i = 0; i < enemyNum; i++)
                 {
                     chooseEnemy = randNum.Next(0, 2);
@@ -613,6 +654,7 @@ namespace Shoot_Out_Game_MOO_ICT
                                 enemyHealth.RemoveAt(enemyHit);
                                 enemyTypes.RemoveAt(enemyHit);
                                 bat1Visible = false;
+                                batNum--;
                             }
                         }
                         if (((PictureBox)bat2).Bounds.IntersectsWith(j.Bounds) && bat2Visible) //j is bullet
@@ -640,6 +682,7 @@ namespace Shoot_Out_Game_MOO_ICT
                                 enemyHealth.RemoveAt(enemyHit);
                                 enemyTypes.RemoveAt(enemyHit);
                                 bat2Visible = false;
+                                batNum--;
                             }
                         }
                         if (((PictureBox)bat3).Bounds.IntersectsWith(j.Bounds) && bat3Visible) //j is bullet
@@ -667,6 +710,7 @@ namespace Shoot_Out_Game_MOO_ICT
                                 enemyHealth.RemoveAt(enemyHit);
                                 enemyTypes.RemoveAt(enemyHit);
                                 bat3Visible = false;
+                                batNum--;
                             }
                         }
 
@@ -697,6 +741,7 @@ namespace Shoot_Out_Game_MOO_ICT
                                 enemyHealth.RemoveAt(enemyHit);
                                 enemyTypes.RemoveAt(enemyHit);
                                 bat1Visible = false;
+                                ratNum--;
                             }
                         }
                         if (((PictureBox)rat2).Bounds.IntersectsWith(j.Bounds) && rat2Visible) //j is bullet
@@ -724,7 +769,8 @@ namespace Shoot_Out_Game_MOO_ICT
                                 enemyNum -= 1;
                                 enemyHealth.RemoveAt(enemyHit);
                                 enemyTypes.RemoveAt(enemyHit);
-                                bat1Visible = false;
+                                rat2Visible = false;
+                                ratNum--;
                             }
                         }
                         if (((PictureBox)rat3).Bounds.IntersectsWith(j.Bounds) && rat3Visible) //j is bullet
@@ -752,7 +798,8 @@ namespace Shoot_Out_Game_MOO_ICT
                                 enemyNum -= 1;
                                 enemyHealth.RemoveAt(enemyHit);
                                 enemyTypes.RemoveAt(enemyHit);
-                                bat1Visible = false;
+                                rat3Visible = false;
+                                ratNum--;
                             }
                         }
 
@@ -840,7 +887,7 @@ namespace Shoot_Out_Game_MOO_ICT
             if (((PictureBox)bat1).Bounds.IntersectsWith(bat2.Bounds) && bat1Visible && bat2Visible)
             {
                 //set bat1 speed to 0
-                bat1Speed = 0;
+                bat1Speed = -1;
             }
             else
             {
@@ -868,7 +915,7 @@ namespace Shoot_Out_Game_MOO_ICT
             if (((PictureBox)bat2).Bounds.IntersectsWith(bat3.Bounds) && bat2Visible && bat3Visible)
             {
                 //set bat1 speed to 0
-                bat2Speed = 0;
+                bat2Speed = -1;
             }
             else
             {
@@ -895,7 +942,7 @@ namespace Shoot_Out_Game_MOO_ICT
             if (((PictureBox)bat3).Bounds.IntersectsWith(bat1.Bounds) && bat3Visible && bat1Visible)
             {
                 //set bat3 speed to 0
-                bat3Speed = 0;
+                bat3Speed = -1;
             }
             else
             {
@@ -926,7 +973,7 @@ namespace Shoot_Out_Game_MOO_ICT
             if (((PictureBox)rat1).Bounds.IntersectsWith(rat2.Bounds) && rat1Visible && rat2Visible)
             {
                 //set bat1 speed to 0
-                rat1Speed = 0;
+                rat1Speed = -1;
             }
             else
             {
@@ -954,7 +1001,7 @@ namespace Shoot_Out_Game_MOO_ICT
             if (((PictureBox)rat2).Bounds.IntersectsWith(rat3.Bounds) && rat2Visible && rat3Visible)
             {
                 //set bat1 speed to 0
-                rat2Speed = 0;
+                rat2Speed = -1;
             }
             else
             {
@@ -981,7 +1028,7 @@ namespace Shoot_Out_Game_MOO_ICT
             if (((PictureBox)rat3).Bounds.IntersectsWith(rat1.Bounds) && rat3Visible && rat1Visible)
             {
                 //set bat3 speed to 0
-                rat3Speed = 0;
+                rat3Speed = -1;
             }
             else
             {

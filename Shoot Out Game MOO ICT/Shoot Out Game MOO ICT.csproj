@@ -144,5 +144,11 @@
   <ItemGroup>
     <None Include="Resources\DD_OpenDoor.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DoorSideways.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DoorClosedTop.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
