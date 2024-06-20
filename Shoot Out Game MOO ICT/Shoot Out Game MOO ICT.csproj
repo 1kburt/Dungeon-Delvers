@@ -60,18 +60,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -149,6 +149,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DoorClosedTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\BatUp %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\BatUp %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\DoorClosed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\DoorOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\PlayerLeft1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\PlayerLeft2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\PlayerRight1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\PlayerRight2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\RatRight1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\Staircase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\ClosedChest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\OpenChest.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

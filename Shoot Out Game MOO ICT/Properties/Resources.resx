@@ -118,70 +118,112 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DD_BatUp2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DD_BatUp2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="zdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="zup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DoorSideways" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DoorSideways.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DD_OpenDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DD_OpenDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="zright" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DD_BatDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="DD_BatDown1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\images\DD_BatDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="stairs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\images\stairs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BatUp (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\BatUp (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DD_BatUp2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DD_BatUp2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DoorClosed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\DoorClosed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BatUp (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\BatUp (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DoorSideways" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DoorSideways.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="zleft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zleft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DD_OpenDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DD_OpenDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DoorOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\DoorOpen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DD_Staircase" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DD_Staircase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DoorClosedTop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DoorClosedTop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PlayerRight1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\PlayerRight1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DD_BatDown2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DD_BatDown2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RatRight1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\RatRight1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stairs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\stairs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DD_BatDown4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DD_BatDown4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="zdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="zright" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DD_BatDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\DD_BatDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DD_BatUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\images\DD_BatUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DD_BatDown3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DD_BatDown3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DD_Rat1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DD_Rat1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="castledoors" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\castledoors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DoorClosedTop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DoorClosedTop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DD_BatUp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\DD_BatUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayerLeft2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\PlayerLeft2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DD_Rat1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DD_Rat1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayerLeft1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\PlayerLeft1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DD_BatDown3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DD_BatDown3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DD_BatUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\DD_BatUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Staircase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\Staircase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayerRight2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\PlayerRight2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DD_Staircase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DD_Staircase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DD_BatDown2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DD_BatDown2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClosedChest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\ClosedChest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenChest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\OpenChest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

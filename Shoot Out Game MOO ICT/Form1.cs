@@ -36,12 +36,14 @@ namespace Shoot_Out_Game_MOO_ICT
         bool stairsVisible = false;
         Random randNum = new Random();
         int damage = 20;
+        int chooseEnemy;
         //enemy nums
         int batNum = 0;
         int ratNum = 0;
         int slimeNum = 0;
         int goblinNum = 0;
         int skeletonNum = 0;
+
 
         //Enemy speeds
         int enemySpeed = 3;
@@ -85,7 +87,7 @@ namespace Shoot_Out_Game_MOO_ICT
             enemyMove();
             labelFloor.Text = ($"Floor: {floor} /  {BOSS_FLOOR}");
             labelRoom.Text = ($"Room: {roomNum}");
-            labelRoom.Text = ($"Gold: {gold}");
+            labelGold.Text = ($"Gold: {gold}");
             NewFloor();
             //Doors
             //Door Interaction
@@ -95,44 +97,44 @@ namespace Shoot_Out_Game_MOO_ICT
                 allLocked = false;
                 if (lockedRoom == "Right")
                 {
-                    basicDoor.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor2.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor3.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor2.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor3.Image = Image.FromFile("images/DoorOpen.png");
                 }
                 else if(lockedRoom == "Left")
                 {
-                    basicDoor1.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor2.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor3.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor1.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor2.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor3.Image = Image.FromFile("images/DoorOpen.png");
                 }
                 else if (lockedRoom == "Top")
                 {
-                    basicDoor.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor2.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor1.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor2.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor1.Image = Image.FromFile("images/DoorOpen.png");
                 }
                 else if (lockedRoom == "Bottom")
                 {
-                    basicDoor.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor1.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor3.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor1.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor3.Image = Image.FromFile("images/DoorOpen.png");
                 }
                 else
                 {
-                    basicDoor.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor1.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor2.Image = Properties.Resources.DD_OpenDoor;
-                    basicDoor3.Image = Properties.Resources.DD_OpenDoor;
+                    basicDoor.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor1.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor2.Image = Image.FromFile("images/DoorOpen.png");
+                    basicDoor3.Image = Image.FromFile("images/DoorOpen.png");
                 }
 
             }
             else
             {
                 allLocked = true; //when you kill an enemy I need to make it reduce enemynum by 1
-                basicDoor.Image = Properties.Resources.DoorClosedTop;
-                basicDoor1.Image = Properties.Resources.DoorClosedTop;
-                basicDoor2.Image = Properties.Resources.DoorClosedTop;
-                basicDoor3.Image = Properties.Resources.DoorClosedTop;
+                basicDoor.Image = Image.FromFile("images/DoorClosed.png");
+                basicDoor1.Image = Image.FromFile("images/DoorClosed.png");
+                basicDoor2.Image = Image.FromFile("images/DoorClosed.png");
+                basicDoor3.Image = Image.FromFile("images/DoorClosed.png");
             }
             if (((PictureBox)player).Bounds.IntersectsWith(basicDoor.Bounds) && !allLocked && lockedRoom != "Left") //left door
             {
@@ -188,7 +190,6 @@ namespace Shoot_Out_Game_MOO_ICT
             else
             {
                 gameOver = true;
-                player.Image = Properties.Resources.dead; //reset
                 GameTimer.Stop();
             }
 
@@ -214,7 +215,7 @@ namespace Shoot_Out_Game_MOO_ICT
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-
+            int moveFrameUpdate = 0;
             if (gameOver == true)
             {
                 return;
@@ -224,28 +225,38 @@ namespace Shoot_Out_Game_MOO_ICT
             {
                 goLeft = true;
                 facing = "left";
-                player.Image = Properties.Resources.left;
+                if (moveFrameUpdate >= 5)
+                {
+                    moveFrameUpdate = 0;
+                }
+                else if (animCounter <= 2)
+                {
+                    player.Image = Image.FromFile("images/PlayerLeft1.png");
+                }
+                else if (animCounter >= 3)
+                {
+                    player.Image = Image.FromFile("images/PlayerLeft2.png");
+                }
+                moveFrameUpdate++;
             }
 
             if (e.KeyCode == Keys.D)
             {
                 goRight = true;
                 facing = "right";
-                player.Image = Properties.Resources.right;
+                player.Image = Image.FromFile("images/PlayerRight1.png");
             }
 
             if (e.KeyCode == Keys.W)
             {
                 goUp = true;
                 facing = "up";
-                player.Image = Properties.Resources.up;
             }
 
             if (e.KeyCode == Keys.S)
             {
                 goDown = true;
-                facing = "down";
-                player.Image = Properties.Resources.down;
+                facing = "down";            
             }
 
 
@@ -300,8 +311,6 @@ namespace Shoot_Out_Game_MOO_ICT
 
         private void RestartGame() //edit this
         {
-            player.Image = Properties.Resources.up;
-
             goUp = false;
             goDown = false;
             goLeft = false;
@@ -378,7 +387,6 @@ namespace Shoot_Out_Game_MOO_ICT
 
         private void SpawnEnemies() //new enemy spawner
         {
-            int chooseEnemy;
             //Choose number of enemies
             //Choose enemies
             if (floor == 1)
@@ -388,7 +396,7 @@ namespace Shoot_Out_Game_MOO_ICT
                 enemyNum = randNum.Next(2, 3); 
                 for (int i = 0; i < enemyNum; i++)
                 {
-                    chooseEnemy = randNum.Next(0, 1);
+                    chooseEnemy = randNum.Next(0, 2);
                     if (batNum == 3 && ratNum != 3)
                     {
                         RatSpawn();
@@ -740,7 +748,7 @@ namespace Shoot_Out_Game_MOO_ICT
                                 enemyNum -= 1;
                                 enemyHealth.RemoveAt(enemyHit);
                                 enemyTypes.RemoveAt(enemyHit);
-                                bat1Visible = false;
+                                rat1Visible = false;
                                 ratNum--;
                             }
                         }
@@ -850,15 +858,15 @@ namespace Shoot_Out_Game_MOO_ICT
             }
             else if (animCounter <= 15)
             {
-                bat1.Image = Properties.Resources.DD_BatUp2;
-                bat2.Image = Properties.Resources.DD_BatUp2;
-                bat3.Image = Properties.Resources.DD_BatUp2;
+                bat1.Image = Image.FromFile("images/BatUp (1).png");
+                bat2.Image = Image.FromFile("images/BatUp (1).png");
+                bat3.Image = Image.FromFile("images/BatUp (1).png");
             }
             else if (animCounter >= 15)
             {
-                bat1.Image = Properties.Resources.DD_BatDown4;
-                bat2.Image = Properties.Resources.DD_BatDown4;
-                bat3.Image = Properties.Resources.DD_BatDown4;
+                bat1.Image = Image.FromFile("images/BatUp (2).png");
+                bat2.Image = Image.FromFile("images/BatUp (2).png");
+                bat3.Image = Image.FromFile("images/BatUp (2).png");
             }
             animCounter++;
 

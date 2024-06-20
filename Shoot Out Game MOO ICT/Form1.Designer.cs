@@ -36,6 +36,8 @@
             this.labelRoom = new System.Windows.Forms.Label();
             this.labelFloor = new System.Windows.Forms.Label();
             this.labelGold = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.player = new System.Windows.Forms.PictureBox();
             this.rat3 = new System.Windows.Forms.PictureBox();
             this.rat2 = new System.Windows.Forms.PictureBox();
             this.rat1 = new System.Windows.Forms.PictureBox();
@@ -47,7 +49,8 @@
             this.basicDoor2 = new System.Windows.Forms.PictureBox();
             this.basicDoor1 = new System.Windows.Forms.PictureBox();
             this.basicDoor = new System.Windows.Forms.PictureBox();
-            this.player = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rat3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rat2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rat1)).BeginInit();
@@ -59,7 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -117,9 +119,29 @@
             this.labelGold.TabIndex = 12;
             this.labelGold.Text = "Gold:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.OpenChest;
+            this.pictureBox1.Location = new System.Drawing.Point(411, 270);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(105, 105);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
+            // player
+            // 
+            this.player.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.PlayerRight1;
+            this.player.Location = new System.Drawing.Point(426, 440);
+            this.player.Name = "player";
+            this.player.Size = new System.Drawing.Size(75, 95);
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player.TabIndex = 2;
+            this.player.TabStop = false;
+            // 
             // rat3
             // 
-            this.rat3.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_Rat1;
+            this.rat3.Image = ((System.Drawing.Image)(resources.GetObject("rat3.Image")));
             this.rat3.Location = new System.Drawing.Point(584, 440);
             this.rat3.Name = "rat3";
             this.rat3.Size = new System.Drawing.Size(83, 37);
@@ -129,7 +151,7 @@
             // 
             // rat2
             // 
-            this.rat2.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_Rat1;
+            this.rat2.Image = ((System.Drawing.Image)(resources.GetObject("rat2.Image")));
             this.rat2.Location = new System.Drawing.Point(625, 286);
             this.rat2.Name = "rat2";
             this.rat2.Size = new System.Drawing.Size(83, 37);
@@ -139,7 +161,7 @@
             // 
             // rat1
             // 
-            this.rat1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_Rat1;
+            this.rat1.Image = ((System.Drawing.Image)(resources.GetObject("rat1.Image")));
             this.rat1.Location = new System.Drawing.Point(603, 354);
             this.rat1.Name = "rat1";
             this.rat1.Size = new System.Drawing.Size(83, 37);
@@ -149,7 +171,7 @@
             // 
             // bat3
             // 
-            this.bat3.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown4;
+            this.bat3.Image = ((System.Drawing.Image)(resources.GetObject("bat3.Image")));
             this.bat3.Location = new System.Drawing.Point(250, 270);
             this.bat3.Name = "bat3";
             this.bat3.Size = new System.Drawing.Size(89, 36);
@@ -159,7 +181,7 @@
             // 
             // bat2
             // 
-            this.bat2.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown4;
+            this.bat2.Image = ((System.Drawing.Image)(resources.GetObject("bat2.Image")));
             this.bat2.Location = new System.Drawing.Point(360, 295);
             this.bat2.Name = "bat2";
             this.bat2.Size = new System.Drawing.Size(89, 36);
@@ -169,7 +191,7 @@
             // 
             // bat1
             // 
-            this.bat1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_BatDown4;
+            this.bat1.Image = ((System.Drawing.Image)(resources.GetObject("bat1.Image")));
             this.bat1.Location = new System.Drawing.Point(499, 286);
             this.bat1.Name = "bat1";
             this.bat1.Size = new System.Drawing.Size(89, 36);
@@ -179,8 +201,8 @@
             // 
             // stairs
             // 
-            this.stairs.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DD_Staircase;
-            this.stairs.Location = new System.Drawing.Point(426, 189);
+            this.stairs.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.Staircase;
+            this.stairs.Location = new System.Drawing.Point(411, 180);
             this.stairs.Name = "stairs";
             this.stairs.Size = new System.Drawing.Size(100, 100);
             this.stairs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -189,7 +211,7 @@
             // 
             // basicDoor3
             // 
-            this.basicDoor3.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DoorClosedTop;
+            this.basicDoor3.Image = ((System.Drawing.Image)(resources.GetObject("basicDoor3.Image")));
             this.basicDoor3.InitialImage = ((System.Drawing.Image)(resources.GetObject("basicDoor3.InitialImage")));
             this.basicDoor3.Location = new System.Drawing.Point(432, 1);
             this.basicDoor3.Name = "basicDoor3";
@@ -200,7 +222,7 @@
             // 
             // basicDoor2
             // 
-            this.basicDoor2.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DoorClosedTop;
+            this.basicDoor2.Image = ((System.Drawing.Image)(resources.GetObject("basicDoor2.Image")));
             this.basicDoor2.InitialImage = ((System.Drawing.Image)(resources.GetObject("basicDoor2.InitialImage")));
             this.basicDoor2.Location = new System.Drawing.Point(432, 560);
             this.basicDoor2.Name = "basicDoor2";
@@ -211,7 +233,7 @@
             // 
             // basicDoor1
             // 
-            this.basicDoor1.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DoorClosedTop;
+            this.basicDoor1.Image = ((System.Drawing.Image)(resources.GetObject("basicDoor1.Image")));
             this.basicDoor1.InitialImage = ((System.Drawing.Image)(resources.GetObject("basicDoor1.InitialImage")));
             this.basicDoor1.Location = new System.Drawing.Point(858, 270);
             this.basicDoor1.Name = "basicDoor1";
@@ -222,7 +244,7 @@
             // 
             // basicDoor
             // 
-            this.basicDoor.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.DoorClosedTop;
+            this.basicDoor.Image = ((System.Drawing.Image)(resources.GetObject("basicDoor.Image")));
             this.basicDoor.InitialImage = ((System.Drawing.Image)(resources.GetObject("basicDoor.InitialImage")));
             this.basicDoor.Location = new System.Drawing.Point(1, 270);
             this.basicDoor.Name = "basicDoor";
@@ -231,22 +253,13 @@
             this.basicDoor.TabIndex = 3;
             this.basicDoor.TabStop = false;
             // 
-            // player
-            // 
-            this.player.Image = global::Shoot_Out_Game_MOO_ICT.Properties.Resources.up;
-            this.player.Location = new System.Drawing.Point(426, 440);
-            this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(71, 100);
-            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.player.TabIndex = 2;
-            this.player.TabStop = false;
-            // 
             // DungeonDelvers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(924, 661);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.player);
             this.Controls.Add(this.rat3);
             this.Controls.Add(this.rat2);
@@ -269,6 +282,8 @@
             this.Load += new System.EventHandler(this.DungeonDelvers_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rat3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rat2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rat1)).EndInit();
@@ -280,7 +295,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basicDoor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,7 +309,6 @@
         private System.Windows.Forms.PictureBox basicDoor1;
         private System.Windows.Forms.PictureBox basicDoor2;
         private System.Windows.Forms.PictureBox basicDoor3;
-        private System.Windows.Forms.PictureBox stairs;
         private System.Windows.Forms.Label labelRoom;
         private System.Windows.Forms.Label labelFloor;
         private System.Windows.Forms.Label labelGold;
@@ -305,6 +318,8 @@
         private System.Windows.Forms.PictureBox rat1;
         private System.Windows.Forms.PictureBox rat2;
         private System.Windows.Forms.PictureBox rat3;
+        private System.Windows.Forms.PictureBox stairs;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
